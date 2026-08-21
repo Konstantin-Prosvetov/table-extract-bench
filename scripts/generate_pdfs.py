@@ -217,14 +217,18 @@ def _image_only_pdf(img: Image.Image, out_path: Path, dpi: int):
     # segmentation for reasons unrelated to image quality.
     width_pt = img.width * 72 / dpi
     height_pt = img.height * 72 / dpi
-    img.save(out_path.with_suffix(".png"))
+    # JPEG, not PNG: a lot smaller, and more representative of a real scan
+    # (which is virtually never lossless) — quality 85 keeps it visibly
+    # clean while still exercising OCR on realistic compression artifacts.
+    tmp_img = out_path.with_suffix(".jpg")
+    img.convert("RGB").save(tmp_img, format="JPEG", quality=85)
     doc = fitz.open()
     rect = fitz.Rect(0, 0, width_pt, height_pt)
     page = doc.new_page(width=width_pt, height=height_pt)
-    page.insert_image(rect, filename=str(out_path.with_suffix(".png")))
+    page.insert_image(rect, filename=str(tmp_img))
     doc.save(out_path)
     doc.close()
-    out_path.with_suffix(".png").unlink()
+    tmp_img.unlink()
 
 
 def case_06_scanned_no_text():

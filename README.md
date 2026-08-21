@@ -112,7 +112,7 @@ Full tables: [`results/results.md`](results/results.md) /
 | 03_merged_cells | 0.87 | 0.87 | 0.87 | 0.70 |
 | 04_multirow_header | 1.00 | 1.00 | 0.91 | 0.64 |
 | 05_rotated_page | 1.00 | 1.00 | 1.00 | 0.88 |
-| 06_scanned_no_text | 0.00 | 0.00 | 0.00 | 0.84 |
+| 06_scanned_no_text | 0.00 | 0.00 | 0.00 | 0.91 |
 | 07_scanned_noisy | 0.00 | 0.00 | 0.00 | 0.00 |
 | 08_table_two_pages | 1.00 | 1.00 | 1.00 | 0.80 |
 | 09_mixed_languages | 0.91 | 0.94 | 0.94 | 0.60 |
@@ -146,7 +146,7 @@ Full tables: [`results/results.md`](results/results.md) /
 - **Scans (06, 07):** `pdfplumber` and `camelot` score exactly `0.00` on
   both — expected, they operate on the PDF's text layer and there isn't
   one. OCR is the only path that produces anything. On the clean scan (06)
-  it recovers 84% of cells at 92% accuracy. On the degraded scan (07) it
+  it recovers 91% of cells at 85% accuracy. On the degraded scan (07) it
   gets **zero** — not a low score, an empty result. That's not a rendering
   problem (see next section): Tesseract's default automatic page
   segmentation (`psm=3`) found *no text blocks at all* on the blurred,
