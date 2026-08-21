@@ -14,11 +14,12 @@ pillow==12.3.0
 pandas==3.0.5
 numpy==2.5.2
 pytest==9.1.1
+ruff==0.16.4
 
 # Notes:
 # - camelot-py also requires Ghostscript installed as a system binary (`gs`).
 # - pytesseract requires the `tesseract` system binary plus language packs
-#   (this benchmark uses eng, vie, chi_sim — see README "Setup").
+#   (this benchmark uses eng, vie — see README "Setup").
 # - tabula-py is intentionally NOT included: it requires a JVM, which was not
 #   available in the environment this benchmark was built in. See README
 #   "What this methodology does not measure" for what that leaves untested.
