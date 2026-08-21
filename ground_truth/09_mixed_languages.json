@@ -1,0 +1,57 @@
+{
+  "id": "09_mixed_languages",
+  "n_rows": 7,
+  "n_cols": 5,
+  "rows": [
+    [
+      "Mã căn",
+      "Project",
+      "国籍 (Nationality)",
+      "Diện tích (m2)",
+      "Giá (USD)"
+    ],
+    [
+      "A-101",
+      "Sunview Towers",
+      "Hàn Quốc",
+      "68",
+      "142,000"
+    ],
+    [
+      "A-102",
+      "Sunview Towers",
+      "中国",
+      "75",
+      "158,500"
+    ],
+    [
+      "B-204",
+      "Emerald Court",
+      "Việt Nam",
+      "54",
+      "98,000"
+    ],
+    [
+      "B-207",
+      "Emerald Court",
+      "日本",
+      "82",
+      "171,200"
+    ],
+    [
+      "C-310",
+      "Harbor Point",
+      "Singapore",
+      "61",
+      "121,900"
+    ],
+    [
+      "C-315",
+      "Harbor Point",
+      "Đài Loan",
+      "70",
+      "139,400"
+    ]
+  ],
+  "description": "Vietnamese diacritics, Chinese and Japanese script mixed with Latin text in the same table."
+}

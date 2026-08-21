@@ -1,0 +1,62 @@
+{
+  "id": "02_borderless",
+  "n_rows": 9,
+  "n_cols": 4,
+  "rows": [
+    [
+      "Project",
+      "City",
+      "Buyers",
+      "Avg. Price/m2"
+    ],
+    [
+      "Sunview Towers",
+      "Coastal City",
+      "28",
+      "2456"
+    ],
+    [
+      "Emerald Court",
+      "Highland Town",
+      "119",
+      "3503"
+    ],
+    [
+      "Harbor Point",
+      "Highland Town",
+      "44",
+      "2416"
+    ],
+    [
+      "Cedar Residences",
+      "Highland Town",
+      "56",
+      "3645"
+    ],
+    [
+      "Palm Grove",
+      "Highland Town",
+      "182",
+      "3699"
+    ],
+    [
+      "Skyline Plaza",
+      "Delta City",
+      "21",
+      "3395"
+    ],
+    [
+      "Willow Creek",
+      "Delta City",
+      "46",
+      "3087"
+    ],
+    [
+      "Marina Bay Homes",
+      "Delta City",
+      "65",
+      "1569"
+    ]
+  ],
+  "description": "Table with no ruling lines at all — columns separated only by whitespace."
+}

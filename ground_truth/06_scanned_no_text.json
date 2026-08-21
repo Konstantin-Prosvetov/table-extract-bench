@@ -1,0 +1,71 @@
+{
+  "id": "06_scanned_no_text",
+  "n_rows": 9,
+  "n_cols": 5,
+  "rows": [
+    [
+      "Ref",
+      "Location",
+      "Type",
+      "Size (m2)",
+      "Value (USD)"
+    ],
+    [
+      "REF-01",
+      "Block A",
+      "Duplex",
+      "127",
+      "122,000"
+    ],
+    [
+      "REF-02",
+      "Block C",
+      "Studio",
+      "147",
+      "40,000"
+    ],
+    [
+      "REF-03",
+      "Block C",
+      "Duplex",
+      "92",
+      "49,000"
+    ],
+    [
+      "REF-04",
+      "Block A",
+      "Duplex",
+      "142",
+      "197,000"
+    ],
+    [
+      "REF-05",
+      "Block A",
+      "Flat",
+      "60",
+      "330,000"
+    ],
+    [
+      "REF-06",
+      "Block A",
+      "Flat",
+      "123",
+      "288,000"
+    ],
+    [
+      "REF-07",
+      "Block A",
+      "Studio",
+      "128",
+      "104,000"
+    ],
+    [
+      "REF-08",
+      "Block A",
+      "Studio",
+      "90",
+      "321,000"
+    ]
+  ],
+  "description": "Same table rendered to a bitmap and embedded as an image-only PDF page — no text layer at all, requires OCR."
+}

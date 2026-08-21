@@ -1,0 +1,101 @@
+{
+  "id": "03_merged_cells",
+  "n_rows": 6,
+  "n_cols": 5,
+  "rows": [
+    [
+      "Project",
+      "Q1 2026 Units Sold",
+      "Q1 2026 Revenue (k$)",
+      "Q2 2026 Units Sold",
+      "Q2 2026 Revenue (k$)"
+    ],
+    [
+      "Sunview Towers",
+      "14",
+      "980",
+      "19",
+      "1,340"
+    ],
+    [
+      "Emerald Court",
+      "8",
+      "560",
+      "11",
+      "790"
+    ],
+    [
+      "Harbor Point",
+      "22",
+      "1,650",
+      "17",
+      "1,190"
+    ],
+    [
+      "Cedar Residences",
+      "5",
+      "310",
+      "9",
+      "605"
+    ],
+    [
+      "Palm Grove",
+      "12",
+      "845",
+      "14",
+      "990"
+    ]
+  ],
+  "description": "Two-level merged header (SPAN across quarter, sub-columns for metric); one merged row label spanning the header block.",
+  "raw_rows": [
+    [
+      "Project",
+      "Q1 2026",
+      "",
+      "Q2 2026",
+      ""
+    ],
+    [
+      "",
+      "Units Sold",
+      "Revenue (k$)",
+      "Units Sold",
+      "Revenue (k$)"
+    ],
+    [
+      "Sunview Towers",
+      "14",
+      "980",
+      "19",
+      "1,340"
+    ],
+    [
+      "Emerald Court",
+      "8",
+      "560",
+      "11",
+      "790"
+    ],
+    [
+      "Harbor Point",
+      "22",
+      "1,650",
+      "17",
+      "1,190"
+    ],
+    [
+      "Cedar Residences",
+      "5",
+      "310",
+      "9",
+      "605"
+    ],
+    [
+      "Palm Grove",
+      "12",
+      "845",
+      "14",
+      "990"
+    ]
+  ]
+}

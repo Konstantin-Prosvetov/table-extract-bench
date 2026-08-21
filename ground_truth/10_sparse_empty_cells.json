@@ -1,0 +1,57 @@
+{
+  "id": "10_sparse_empty_cells",
+  "n_rows": 7,
+  "n_cols": 5,
+  "rows": [
+    [
+      "Unit",
+      "Buyer Type",
+      "Mortgage Bank",
+      "Notary Date",
+      "Notes"
+    ],
+    [
+      "U-01",
+      "Individual",
+      "Bank A",
+      "2025-03-11",
+      ""
+    ],
+    [
+      "U-02",
+      "Individual",
+      "",
+      "2025-03-14",
+      "Cash purchase"
+    ],
+    [
+      "U-03",
+      "Corporate",
+      "Bank B",
+      "",
+      ""
+    ],
+    [
+      "U-04",
+      "Individual",
+      "Bank A",
+      "2025-04-02",
+      ""
+    ],
+    [
+      "U-05",
+      "Corporate",
+      "",
+      "",
+      "Pending documents"
+    ],
+    [
+      "U-06",
+      "Individual",
+      "Bank C",
+      "2025-04-19",
+      ""
+    ]
+  ],
+  "description": "Table with genuinely empty cells (missing mortgage bank / date / notes) — tests whether extractors keep column alignment when cells are blank."
+}

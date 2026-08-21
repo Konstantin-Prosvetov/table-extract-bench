@@ -1,0 +1,171 @@
+{
+  "id": "08_table_two_pages",
+  "n_rows": 23,
+  "n_cols": 5,
+  "rows": [
+    [
+      "Entry",
+      "Project",
+      "District",
+      "Contract No.",
+      "Date"
+    ],
+    [
+      "1",
+      "Harbor Point",
+      "Lakeview",
+      "CT-2025001",
+      "2025-01-08"
+    ],
+    [
+      "2",
+      "Sunview Towers",
+      "Riverside",
+      "CT-2025002",
+      "2025-06-03"
+    ],
+    [
+      "3",
+      "Harbor Point",
+      "Riverside",
+      "CT-2025003",
+      "2025-05-22"
+    ],
+    [
+      "4",
+      "Emerald Court",
+      "Riverside",
+      "CT-2025004",
+      "2025-09-05"
+    ],
+    [
+      "5",
+      "Harbor Point",
+      "Lakeview",
+      "CT-2025005",
+      "2025-10-16"
+    ],
+    [
+      "6",
+      "Sunview Towers",
+      "Northgate",
+      "CT-2025006",
+      "2025-07-07"
+    ],
+    [
+      "7",
+      "Sunview Towers",
+      "Riverside",
+      "CT-2025007",
+      "2025-11-14"
+    ],
+    [
+      "8",
+      "Emerald Court",
+      "Northgate",
+      "CT-2025008",
+      "2025-07-15"
+    ],
+    [
+      "9",
+      "Harbor Point",
+      "Riverside",
+      "CT-2025009",
+      "2025-11-21"
+    ],
+    [
+      "10",
+      "Harbor Point",
+      "Riverside",
+      "CT-2025010",
+      "2025-01-13"
+    ],
+    [
+      "11",
+      "Harbor Point",
+      "Northgate",
+      "CT-2025011",
+      "2025-02-08"
+    ],
+    [
+      "12",
+      "Sunview Towers",
+      "Riverside",
+      "CT-2025012",
+      "2025-09-15"
+    ],
+    [
+      "13",
+      "Sunview Towers",
+      "Northgate",
+      "CT-2025013",
+      "2025-03-09"
+    ],
+    [
+      "14",
+      "Emerald Court",
+      "Riverside",
+      "CT-2025014",
+      "2025-02-15"
+    ],
+    [
+      "15",
+      "Harbor Point",
+      "Riverside",
+      "CT-2025015",
+      "2025-01-21"
+    ],
+    [
+      "16",
+      "Harbor Point",
+      "Riverside",
+      "CT-2025016",
+      "2025-02-25"
+    ],
+    [
+      "17",
+      "Sunview Towers",
+      "Riverside",
+      "CT-2025017",
+      "2025-07-16"
+    ],
+    [
+      "18",
+      "Emerald Court",
+      "Riverside",
+      "CT-2025018",
+      "2025-07-02"
+    ],
+    [
+      "19",
+      "Sunview Towers",
+      "Northgate",
+      "CT-2025019",
+      "2025-01-13"
+    ],
+    [
+      "20",
+      "Emerald Court",
+      "Northgate",
+      "CT-2025020",
+      "2025-05-14"
+    ],
+    [
+      "21",
+      "Harbor Point",
+      "Lakeview",
+      "CT-2025021",
+      "2025-09-22"
+    ],
+    [
+      "22",
+      "Harbor Point",
+      "Northgate",
+      "CT-2025022",
+      "2025-03-07"
+    ]
+  ],
+  "description": "Logical table split across two pages; header row is repeated at the top of page 2 (as is common in real exports).",
+  "spans_pages": true,
+  "header_repeated_on_page_2": true
+}

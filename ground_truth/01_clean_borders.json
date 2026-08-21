@@ -1,0 +1,112 @@
+{
+  "id": "01_clean_borders",
+  "n_rows": 13,
+  "n_cols": 6,
+  "rows": [
+    [
+      "Lot ID",
+      "District",
+      "Unit Type",
+      "Area (m2)",
+      "Price (USD)",
+      "Status"
+    ],
+    [
+      "LOT-001",
+      "Riverside",
+      "Studio",
+      "98",
+      "295,000",
+      "Available"
+    ],
+    [
+      "LOT-002",
+      "Northgate",
+      "Studio",
+      "167",
+      "134,000",
+      "Sold"
+    ],
+    [
+      "LOT-003",
+      "Lakeview",
+      "Studio",
+      "35",
+      "140,000",
+      "Available"
+    ],
+    [
+      "LOT-004",
+      "Northgate",
+      "Penthouse",
+      "34",
+      "619,000",
+      "Available"
+    ],
+    [
+      "LOT-005",
+      "Hillcrest",
+      "3BR",
+      "84",
+      "504,000",
+      "Sold"
+    ],
+    [
+      "LOT-006",
+      "Old Quarter",
+      "Studio",
+      "68",
+      "477,000",
+      "Reserved"
+    ],
+    [
+      "LOT-007",
+      "Old Quarter",
+      "1BR",
+      "83",
+      "389,000",
+      "Available"
+    ],
+    [
+      "LOT-008",
+      "Riverside",
+      "3BR",
+      "52",
+      "412,000",
+      "Reserved"
+    ],
+    [
+      "LOT-009",
+      "Hillcrest",
+      "2BR",
+      "39",
+      "515,000",
+      "Sold"
+    ],
+    [
+      "LOT-010",
+      "Riverside",
+      "3BR",
+      "48",
+      "610,000",
+      "Reserved"
+    ],
+    [
+      "LOT-011",
+      "Hillcrest",
+      "2BR",
+      "175",
+      "241,000",
+      "Sold"
+    ],
+    [
+      "LOT-012",
+      "Riverside",
+      "Studio",
+      "86",
+      "341,000",
+      "Available"
+    ]
+  ],
+  "description": "Clean single table, full grid lines, one page, plain English headers."
+}

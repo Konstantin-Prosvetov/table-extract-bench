@@ -1,0 +1,96 @@
+{
+  "id": "04_multirow_header",
+  "n_rows": 11,
+  "n_cols": 6,
+  "rows": [
+    [
+      "Unit Code",
+      "Floor Level",
+      "Area (m2)",
+      "Price per m2 (USD)",
+      "Contract Date",
+      "Buyer Nationality"
+    ],
+    [
+      "U-001",
+      "16",
+      "83",
+      "2005",
+      "2025-11-23",
+      "Foreign - Region A"
+    ],
+    [
+      "U-002",
+      "23",
+      "76",
+      "1129",
+      "2025-04-27",
+      "Domestic"
+    ],
+    [
+      "U-003",
+      "27",
+      "75",
+      "2543",
+      "2025-05-03",
+      "Foreign - Region A"
+    ],
+    [
+      "U-004",
+      "20",
+      "126",
+      "2188",
+      "2025-04-21",
+      "Foreign - Region C"
+    ],
+    [
+      "U-005",
+      "14",
+      "117",
+      "2779",
+      "2025-03-09",
+      "Foreign - Region A"
+    ],
+    [
+      "U-006",
+      "9",
+      "130",
+      "3199",
+      "2025-09-09",
+      "Foreign - Region C"
+    ],
+    [
+      "U-007",
+      "20",
+      "86",
+      "2382",
+      "2025-04-05",
+      "Foreign - Region C"
+    ],
+    [
+      "U-008",
+      "4",
+      "131",
+      "1092",
+      "2025-02-05",
+      "Foreign - Region A"
+    ],
+    [
+      "U-009",
+      "27",
+      "122",
+      "2629",
+      "2025-10-03",
+      "Foreign - Region C"
+    ],
+    [
+      "U-010",
+      "14",
+      "111",
+      "2817",
+      "2025-09-09",
+      "Domestic"
+    ]
+  ],
+  "description": "Header cells wrap onto two lines within a single header row (no SPAN, just \\n in text)."
+}

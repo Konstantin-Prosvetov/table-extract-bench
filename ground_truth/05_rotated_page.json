@@ -1,0 +1,72 @@
+{
+  "id": "05_rotated_page",
+  "n_rows": 8,
+  "n_cols": 6,
+  "rows": [
+    [
+      "Building",
+      "Wing",
+      "Units",
+      "Occupied",
+      "Vacant",
+      "Occupancy %"
+    ],
+    [
+      "Tower A",
+      "North",
+      "127",
+      "102",
+      "25",
+      "80.3"
+    ],
+    [
+      "Tower B",
+      "East",
+      "127",
+      "123",
+      "4",
+      "96.9"
+    ],
+    [
+      "Tower C",
+      "North",
+      "138",
+      "97",
+      "41",
+      "70.3"
+    ],
+    [
+      "Tower D",
+      "South",
+      "77",
+      "65",
+      "12",
+      "84.4"
+    ],
+    [
+      "Tower E",
+      "East",
+      "98",
+      "10",
+      "88",
+      "10.2"
+    ],
+    [
+      "Tower F",
+      "North",
+      "104",
+      "32",
+      "72",
+      "30.8"
+    ],
+    [
+      "Tower G",
+      "South",
+      "151",
+      "86",
+      "65",
+      "57.0"
+    ]
+  ],
+  "description": "Landscape table with page /Rotate=90 set (text stream unchanged, page displayed rotated — tests whether extractors honor page rotation)."
+}

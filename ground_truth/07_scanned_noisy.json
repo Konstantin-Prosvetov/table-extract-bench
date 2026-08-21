@@ -1,0 +1,71 @@
+{
+  "id": "07_scanned_noisy",
+  "n_rows": 9,
+  "n_cols": 5,
+  "rows": [
+    [
+      "Ref",
+      "Location",
+      "Type",
+      "Size (m2)",
+      "Value (USD)"
+    ],
+    [
+      "REF-01",
+      "Block D",
+      "Duplex",
+      "97",
+      "350,000"
+    ],
+    [
+      "REF-02",
+      "Block E",
+      "Flat",
+      "148",
+      "316,000"
+    ],
+    [
+      "REF-03",
+      "Block F",
+      "Studio",
+      "55",
+      "199,000"
+    ],
+    [
+      "REF-04",
+      "Block E",
+      "Studio",
+      "113",
+      "231,000"
+    ],
+    [
+      "REF-05",
+      "Block E",
+      "Studio",
+      "87",
+      "101,000"
+    ],
+    [
+      "REF-06",
+      "Block D",
+      "Flat",
+      "38",
+      "213,000"
+    ],
+    [
+      "REF-07",
+      "Block D",
+      "Studio",
+      "100",
+      "157,000"
+    ],
+    [
+      "REF-08",
+      "Block F",
+      "Flat",
+      "30",
+      "76,000"
+    ]
+  ],
+  "description": "Degraded scan: slight skew, Gaussian blur and grain layered on top of the rendered table image — simulates a poor photocopy/fax-quality source."
+}
