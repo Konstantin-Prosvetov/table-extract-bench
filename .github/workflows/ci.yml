@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ghostscript tesseract-ocr tesseract-ocr-vie poppler-utils
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install ruff
+
+      - name: Lint
+        run: ruff check src scripts tests
+
+      - name: Test
+        run: pytest tests/ -v
+
+      # Not run in CI: scripts/generate_pdfs.py and scripts/run_benchmark.py
+      # (~10 PDFs through 4 tools, including OCR — slow, and camelot's
+      # Ghostscript subprocess calls are a source of container flakiness
+      # not worth chasing here). tests/ covers the rubric itself; the
+      # generator and benchmark are meant to be re-run by hand when
+      # fixtures or extractors change, per the README.

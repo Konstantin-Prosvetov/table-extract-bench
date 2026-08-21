@@ -65,8 +65,8 @@ def extract_ocr(pdf_path: Path, lang: str = "eng+vie", dpi: int = 200) -> list[T
     # cleanly (verified by cropping and re-OCRing the same region in
     # isolation). 150-200 dpi segments correctly. This is a real, reportable
     # OCR-harness finding, not a rendering bug — see README.
-    from pdf2image import convert_from_path
     import pytesseract
+    from pdf2image import convert_from_path
 
     try:
         pages = convert_from_path(str(pdf_path), dpi=dpi)

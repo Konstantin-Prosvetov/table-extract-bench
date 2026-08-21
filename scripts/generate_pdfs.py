@@ -20,7 +20,7 @@ from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.units import cm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, PageBreak
+from reportlab.platypus import PageBreak, SimpleDocTemplate, Table, TableStyle
 
 ROOT = Path(__file__).resolve().parent.parent
 PDF_DIR = ROOT / "pdfs"
@@ -104,7 +104,6 @@ def case_02_borderless():
     projects = ["Sunview Towers", "Emerald Court", "Harbor Point", "Cedar Residences",
                 "Palm Grove", "Skyline Plaza", "Willow Creek", "Marina Bay Homes"]
     cities = ["Coastal City", "Highland Town", "Delta City"]
-    rows_data = rows[:]
     for p in projects:
         rows.append([p, random.choice(cities), str(random.randint(3, 210)),
                      f"{random.randint(900, 4200)}"])
