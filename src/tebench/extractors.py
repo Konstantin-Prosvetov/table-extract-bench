@@ -58,7 +58,7 @@ def extract_camelot(pdf_path: Path, flavor: str = "lattice") -> list[Table]:
 # proximity, which is a simple but real approach to recovering grid
 # structure from OCR output (as opposed to a canned table-OCR product).
 
-def extract_ocr(pdf_path: Path, lang: str = "eng+vie+chi_sim", dpi: int = 200) -> list[Table]:
+def extract_ocr(pdf_path: Path, lang: str = "eng+vie", dpi: int = 200) -> list[Table]:
     # 200 dpi, not 300: at 300 dpi tesseract's automatic page-segmentation
     # (psm 3) reliably finds zero text blocks on a small table centered on
     # an otherwise-blank A4 page, even though the glyphs themselves render

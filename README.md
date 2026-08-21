@@ -121,12 +121,15 @@ pip install -r requirements.txt
 System dependencies (not pip-installable):
 - **Ghostscript** (`gs`) — required by `camelot`.
 - **poppler-utils** (`pdftoppm`, used via `pdf2image`) — required by the OCR path.
-- **Tesseract OCR** with the `eng`, `vie`, and `chi_sim` language packs —
-  required by the OCR path (fixture 9 mixes English, Vietnamese, and Chinese).
+- **Tesseract OCR** with the `eng` and `vie` language packs — required by
+  the OCR path (fixture 9 mixes English and Vietnamese; earlier versions of
+  this fixture also included Chinese, which is why you may see `chi_sim`
+  referenced elsewhere — see the font-bug writeup below for why it was
+  dropped).
 
 On Debian/Ubuntu:
 ```bash
-apt-get install ghostscript poppler-utils tesseract-ocr tesseract-ocr-vie tesseract-ocr-chi-sim
+apt-get install ghostscript poppler-utils tesseract-ocr tesseract-ocr-vie
 ```
 
 `tabula-py` is **not** included — see "What this methodology does not
@@ -160,7 +163,7 @@ invented for this benchmark — nothing here comes from a real document.
 | `06_scanned_no_text` | The clean table rendered to a bitmap and re-embedded as an image-only PDF page — no text layer, OCR is the only path in. |
 | `07_scanned_noisy` | Same idea as 06, degraded with a slight skew, Gaussian blur, and grain — simulates a poor photocopy/fax-quality scan. |
 | `08_table_two_pages` | One logical table split across two pages, header row repeated on page 2 (as real exports commonly do). |
-| `09_mixed_languages` | Vietnamese diacritics, Chinese, and Japanese script mixed with Latin text in the same table. |
+| `09_mixed_languages` | Vietnamese diacritics mixed with Latin text in the same table (no CJK — see the font-bug writeup below for why). |
 | `10_sparse_empty_cells` | Genuinely empty cells (missing values), testing whether column alignment survives blanks. |
 
 ## The rubric
