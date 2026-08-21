@@ -6,7 +6,7 @@
     [
       "Mã căn",
       "Project",
-      "国籍 (Nationality)",
+      "Quốc tịch (Nationality)",
       "Diện tích (m2)",
       "Giá (USD)"
     ],
@@ -20,7 +20,7 @@
     [
       "A-102",
       "Sunview Towers",
-      "中国",
+      "Trung Quốc",
       "75",
       "158,500"
     ],
@@ -34,7 +34,7 @@
     [
       "B-207",
       "Emerald Court",
-      "日本",
+      "Nhật Bản",
       "82",
       "171,200"
     ],
@@ -53,5 +53,5 @@
       "139,400"
     ]
   ],
-  "description": "Vietnamese diacritics, Chinese and Japanese script mixed with Latin text in the same table."
+  "description": "Vietnamese diacritics mixed with Latin text in the same table (no CJK: no CJK-capable font was available when this was built — see comment above)."
 }

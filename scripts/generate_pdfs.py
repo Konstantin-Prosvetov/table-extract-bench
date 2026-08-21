@@ -18,6 +18,8 @@ from PIL import Image, ImageFilter
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.units import cm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, PageBreak
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -28,9 +30,17 @@ GT_DIR.mkdir(exist_ok=True)
 
 random.seed(42)
 
+# reportlab's base-14 fonts (Helvetica etc.) only cover WinAnsiEncoding —
+# Vietnamese tone-mark combinations aren't in it, and get silently mangled
+# into wrong glyphs rather than raising. A real Unicode TTF is required for
+# any fixture containing Vietnamese text.
+pdfmetrics.registerFont(TTFont("DejaVuSans", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"))
+FONT = "DejaVuSans"
+
 BASIC_STYLE = TableStyle([
     ("GRID", (0, 0), (-1, -1), 0.75, colors.black),
     ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#dddddd")),
+    ("FONTNAME", (0, 0), (-1, -1), FONT),
     ("FONTSIZE", (0, 0), (-1, -1), 9),
     ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
     ("TOPPADDING", (0, 0), (-1, -1), 4),
@@ -38,6 +48,7 @@ BASIC_STYLE = TableStyle([
 ])
 
 NO_GRID_STYLE = TableStyle([
+    ("FONTNAME", (0, 0), (-1, -1), FONT),
     ("FONTSIZE", (0, 0), (-1, -1), 9),
     ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
     ("TOPPADDING", (0, 0), (-1, -1), 6),
@@ -124,7 +135,8 @@ def case_03_merged_cells():
         ("SPAN", (0, 0), (0, 1)),
         ("BACKGROUND", (0, 0), (-1, 1), colors.HexColor("#dddddd")),
         ("ALIGN", (1, 0), (-1, -1), "CENTER"),
-        ("FONTSIZE", (0, 0), (-1, -1), 9),
+        ("FONTNAME", (0, 0), (-1, -1), FONT),
+    ("FONTSIZE", (0, 0), (-1, -1), 9),
         ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
         ("TOPPADDING", (0, 0), (-1, -1), 4),
         ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
@@ -300,19 +312,27 @@ def case_08_two_pages():
 # 09 — mixed languages / scripts in the same table
 # ---------------------------------------------------------------------------
 def case_09_mixed_languages():
-    header = ["Mã căn", "Project", "国籍 (Nationality)", "Diện tích (m2)", "Giá (USD)"]
+    # Chinese/Japanese script was dropped from this fixture: no CJK-capable
+    # font was available in the environment this was built in, and
+    # reportlab's base font silently drops unmappable glyphs rather than
+    # raising — shipping that would have produced a ground truth file that
+    # claims to contain Chinese/Japanese text the PDF never actually has.
+    # DejaVu Sans (used here) covers Vietnamese fully, so the fixture still
+    # exercises diacritics + script-mixing with Latin text, just not CJK.
+    header = ["Mã căn", "Project", "Quốc tịch (Nationality)", "Diện tích (m2)", "Giá (USD)"]
     rows = [header,
             ["A-101", "Sunview Towers", "Hàn Quốc", "68", "142,000"],
-            ["A-102", "Sunview Towers", "中国", "75", "158,500"],
+            ["A-102", "Sunview Towers", "Trung Quốc", "75", "158,500"],
             ["B-204", "Emerald Court", "Việt Nam", "54", "98,000"],
-            ["B-207", "Emerald Court", "日本", "82", "171,200"],
+            ["B-207", "Emerald Court", "Nhật Bản", "82", "171,200"],
             ["C-310", "Harbor Point", "Singapore", "61", "121,900"],
             ["C-315", "Harbor Point", "Đài Loan", "70", "139,400"],
             ]
     case_id = "09_mixed_languages"
     build_simple_doc(PDF_DIR / f"{case_id}.pdf", rows)
-    save_gt(case_id, rows, description="Vietnamese diacritics, Chinese and Japanese script mixed with Latin text "
-                                        "in the same table.")
+    save_gt(case_id, rows, description="Vietnamese diacritics mixed with Latin text in the same table "
+                                        "(no CJK: no CJK-capable font was available when this was built — "
+                                        "see comment above).")
     return case_id
 
 

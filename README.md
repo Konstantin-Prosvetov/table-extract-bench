@@ -25,13 +25,13 @@ Full tables: [`results/results.md`](results/results.md) /
 | 01_clean_borders | 1.00 | 1.00 | 1.00 | 0.92 |
 | 02_borderless | 0.00 | 0.00 | 1.00 | 0.53 |
 | 03_merged_cells | 0.87 | 0.87 | 0.87 | 0.70 |
-| 04_multirow_header | 1.00 | 1.00 | 0.91 | 0.64 |
-| 05_rotated_page | 1.00 | 1.00 | 1.00 | 0.88 |
-| 06_scanned_no_text | 0.00 | 0.00 | 0.00 | 0.91 |
+| 04_multirow_header | 1.00 | 1.00 | 0.91 | 0.79 |
+| 05_rotated_page | 1.00 | 1.00 | 1.00 | 0.85 |
+| 06_scanned_no_text | 0.00 | 0.00 | 0.00 | 0.73 |
 | 07_scanned_noisy | 0.00 | 0.00 | 0.00 | 0.00 |
-| 08_table_two_pages | 1.00 | 1.00 | 1.00 | 0.80 |
-| 09_mixed_languages | 0.91 | 0.94 | 0.94 | 0.60 |
-| 10_sparse_empty_cells | 1.00 | 1.00 | 1.00 | 0.67 |
+| 08_table_two_pages | 1.00 | 1.00 | 1.00 | 0.74 |
+| 09_mixed_languages | 1.00 | 1.00 | 1.00 | 0.57 |
+| 10_sparse_empty_cells | 1.00 | 1.00 | 1.00 | 0.81 |
 
 Don't draw conclusions from this table in isolation — several of these
 numbers aren't what they look like at a glance. `02_borderless`: two tools
@@ -216,7 +216,7 @@ Full definitions and the exact computation live in
 - **Scans (06, 07):** `pdfplumber` and `camelot` score exactly `0.00` on
   both — expected, they operate on the PDF's text layer and there isn't
   one. OCR is the only path that produces anything. On the clean scan (06)
-  it recovers 91% of cells at 85% accuracy. On the degraded scan (07) it
+  it recovers 73% of cells at 94% accuracy. On the degraded scan (07) it
   gets **zero** — not a low score, an empty result. That's not a rendering
   problem (see next section): Tesseract's default automatic page
   segmentation (`psm=3`) found *no text blocks at all* on the blurred,
@@ -227,11 +227,43 @@ Full definitions and the exact computation live in
   doesn't just degrade OCR accuracy — it can make automatic segmentation
   fail outright**, which is a distinct failure mode from "OCR made
   mistakes."
-- **Mixed languages (09):** `camelot` edges `pdfplumber` on recall (0.94 vs
-  0.91), and OCR trails badly at 0.60 — Vietnamese diacritics and CJK
-  characters are exactly where a general-purpose reconstruction heuristic
-  (see below) is weakest, independent of Tesseract's own multi-language
-  accuracy.
+- **Mixed languages (09):** `pdfplumber` and `camelot` both extract every
+  cell correctly (`cell_recall = 1.00`, `value_accuracy = 1.00`) — Vietnamese
+  diacritics mixed with Latin text inside the same table isn't actually hard
+  for either tool once the *source* PDF's text layer is correct (see the
+  font bug below — this fixture originally shipped with corrupted Vietnamese
+  text due to a fixture-generation bug, not a tool limitation). OCR trails at
+  0.57, which is consistent with the reconstruction heuristic's general
+  weakness (documented above), not anything specific to Vietnamese. This
+  fixture no longer includes Chinese/Japanese script — see the font-bug
+  writeup for why.
+
+### A font bug that quietly corrupted the ground truth itself
+
+A second, more serious fixture bug: `09_mixed_languages.pdf` was originally
+generated with reportlab's default font (Helvetica), which only covers
+`WinAnsiEncoding` — it has no Vietnamese tone-mark glyphs and no CJK glyphs
+at all. reportlab doesn't raise on an unmappable character; it silently
+substitutes the wrong glyph. "Dự án" rendered and then extracted back out as
+"Dn án"; "Quốc tịch" came back as "??? nn"; the fixture's Chinese and
+Japanese cells came back **empty** — not garbled, just gone. Because ground
+truth was generated from the same Python strings used to build the PDF (not
+from the rendered PDF itself), this was invisible until someone actually
+opened the extracted text: `results/results.md` would have quietly reported
+value_accuracy for a table extraction problem that was, underneath, a font
+problem. Fixed by registering a real Unicode TTF (DejaVu Sans) for every
+fixture; the Chinese/Japanese cells were dropped from `09_mixed_languages`
+rather than shipped with a font that still can't render them. The numbers
+in this README are post-fix — `pdfplumber` and `camelot` both went from
+~0.9 recall on that fixture to 1.00 once the text they were extracting was
+actually the text the ground truth claimed it was.
+
+This is the same category of mistake as the OCR/DPI bug below — a bug in
+the benchmark's own fixture generation, silently producing a plausible-
+looking but wrong number — and it's the more instructive of the two for
+exactly that reason: it didn't cause a crash or an obviously-broken output,
+it caused a *slightly lower, still plausible* accuracy score that read as
+"OCR/extraction tools are a bit worse at Vietnamese," which was never true.
 
 ### An OCR bug that was actually a fixture bug, and what fixing it changed
 
