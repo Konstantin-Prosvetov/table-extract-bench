@@ -1,0 +1,24 @@
+# Extraction tools under test
+pdfplumber==0.11.10
+camelot-py==2.0.0
+opencv-python-headless==5.0.0.93   # camelot dependency (image processing backend)
+pytesseract==0.3.13
+pdf2image==1.17.0                  # rasterizes PDF pages for the OCR path (needs poppler, see README)
+
+# Fixture generation (scripts/generate_pdfs.py)
+reportlab==5.0.1
+pymupdf==1.28.2
+pillow==12.3.0
+
+# Harness
+pandas==3.0.5
+numpy==2.5.2
+pytest==9.1.1
+
+# Notes:
+# - camelot-py also requires Ghostscript installed as a system binary (`gs`).
+# - pytesseract requires the `tesseract` system binary plus language packs
+#   (this benchmark uses eng, vie, chi_sim — see README "Setup").
+# - tabula-py is intentionally NOT included: it requires a JVM, which was not
+#   available in the environment this benchmark was built in. See README
+#   "What this methodology does not measure" for what that leaves untested.
